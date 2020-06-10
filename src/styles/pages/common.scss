@@ -1,0 +1,223 @@
+@import "../variables.scss";
+@import "../mixins.scss";
+
+.cell-s-tip {
+  color: $gray-light;
+}
+
+.cell-text-info {
+  color: $gray-light;
+  margin-right: 2px;
+  margin-left: 0px;
+}
+
+.cell-link {
+  color: #20a0ff;
+  text-decoration: none;
+}
+
+.cell-dl {
+  @include clearfix();
+  margin-bottom: 10px;
+  dt, dd {
+    float: left;
+  }
+  dt {
+    width: 150px;
+    font-weight: normal;
+  }
+}
+
+.cell-dl-wraper {
+  margin-bottom: 20px;
+  .cell-dl {
+    &:last-child {
+      margin-bottom: 0
+    }
+    margin-bottom: 10px
+  }
+}
+
+.cell-up-down {
+  display: inline-block;
+  width: 14px;
+  vertical-align: top;
+  i {
+    float: left;
+    font-size: 10px;
+    color: #999;
+    cursor: pointer;
+    &:hover, &.on {
+      color: #1f2d3d
+    }
+  }
+}
+
+.mod-form {
+  div.el-form-item {
+    margin-bottom: 10px;
+  }
+
+  div.el-select {
+    width: 140px;
+  }
+
+  div.el-date-editor--daterange.el-input {
+    width: 220px;
+  }
+
+  div.cell-select-auto {
+    width: auto;
+  }
+
+  .el-select__tags {
+    position: relative;
+    top: 0;
+    transform: translateY(0);
+    margin-bottom: -26px;
+    padding-right: 35px;
+    max-width: initial !important;
+  }
+
+  .el-cascader__tags{
+    position: relative;
+    top: -27px;
+    transform: translateY(0);
+    padding-right: 35px;
+    max-width: initial !important;
+  }
+}
+
+.mod-chart {
+  border: 1px solid $gray-border;
+  margin-bottom: 30px;
+
+  > .hd {
+    padding: 6px 12px;
+    border-bottom: 1px solid $gray-border;
+    background-color: #eff2f7;
+    .title {
+      margin-bottom: 0;
+    }
+  }
+
+  > .bd {
+    padding: 20px;
+    @include clearfix();
+
+    .data, .chart {
+      float: left;
+    }
+
+    .data {
+      width: 50%;
+    }
+
+    .chart {
+      width: 50%;
+    }
+  }
+}
+
+.mod-toolbox {
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #EFF2F7;
+
+  .ml10 {
+    margin-left: 10px;
+  }
+}
+
+.mod-el-tree-inline {
+  max-height: 500px;
+  overflow-y: auto;
+  border: 0;
+  .el-tree-node__content {
+    height: 30px;
+    line-height: 30px;
+    cursor: default;
+    &:hover {
+      background: none;
+    }
+  }
+  .el-tree-node__children {
+    white-space: normal;
+    .el-tree-node__label {
+      display: inline-block;
+      min-width: 100px;
+    }
+    .el-tree-node {
+      display: inline-block;
+    }
+  }
+  .el-tree-node.is-current > .el-tree-node__content {
+    background: none;
+  }
+}
+
+.mod-table-head-nowrap .el-table__header thead th > .cell{
+  white-space: nowrap;
+}
+
+.mod-table-auto {
+  thead{
+    th > div.cell {
+      white-space: nowrap;
+    }
+  }
+  tbody {
+    tr:nth-child(even) {
+      background-color: #fafafa;
+    }
+    tr:hover {
+      background-color: #eef1f6;
+    }
+    .nowrap {
+      white-space: nowrap;
+    }
+    &.no-data {
+      tr {
+        background-color: initial !important;
+      }
+      td {
+        padding: 10px 0;
+        color: #999;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.mod-table-expand{
+  margin-bottom: 20px;
+  td.el-table__expanded-cell {
+    padding: 0 !important;
+    .el-table {
+      border: 0
+    }
+    .cell {
+      white-space: nowrap;
+    }
+    .el-table__body-wrapper {
+      overflow: hidden;
+    }
+  }
+  .el-table__fixed {
+    width: 168px !important;
+    .el-table__fixed-body-wrapper {
+      .el-table__expand-column.is-hidden > * {
+        visibility: visible;
+      }
+      table > tbody > tr:last-child {
+        .el-icon {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+.obj-dialog-detail-ad {
+  width: 600px !important;
+}

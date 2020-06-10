@@ -1,0 +1,57 @@
+@mixin clearfix() {
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin hide-text() {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+// New mixin to use as of v3.0.1
+@mixin text-hide() {
+  @include hide-text();
+}
+
+// Typography
+@mixin text-emphasis-variant($color) {
+  color: $color;
+  &:hover,
+  &:focus {
+    color: darken($color, 10%);
+  }
+}
+
+// Contextual backgrounds
+
+@mixin bg-variant($color) {
+  background-color: $color;
+  &:hover,
+  &:focus {
+    background-color: darken($color, 10%);
+  }
+}
+
+@mixin list-unstyled() {
+  padding-left: 0;
+  list-style: none;
+}
+

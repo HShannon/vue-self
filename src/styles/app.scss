@@ -1,0 +1,264 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+@import "./utilities.scss";
+@import "./type.scss";
+
+$blue-base: #234480;
+
+body {
+  font-size: $font-size-base;
+  background-color: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* 重写element的样式 */
+// .el-table {
+//   border: 1px solid #dfe6ec;
+// }
+
+// .el-table th{
+//   background-color: #eef1f6;
+//   color: #1f2d3d;
+// }
+
+// .el-table .el-table_header-wrapper{
+//   border: 1px solid #dfe6ec
+// }
+
+// .el-table .cell-s-tip {
+//   margin-left: 2px
+// }
+
+// .el-table .cell, .el-table th > div {
+//   padding: 0 8px;
+// }
+
+div.el-loading-mask {
+  background-color: hsla(0,0%,100%,.7);
+}
+
+.el-step__title{
+  font-size: 14px;
+}
+
+.el-tabs__nav-scroll {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.el-picker-panel-custom {
+  .el-picker-panel__sidebar {
+    button {
+      display: inline-block;
+      padding: 0 6px;
+      min-width: 33%;
+      width: initial;
+    }
+  }
+}
+
+.el-step__title {
+  font-size: 13px
+}
+
+.el-select .el-tag__close.el-icon-close {
+  background-color: #cce3f8;
+}
+
+.el-submenu .el-menu-item {
+  height: 40px;
+  line-height: 40px;
+}
+
+.el-menu-item.is-active {
+  color: $blue-base;
+}
+
+.el-drawer__container-no-header {
+  .el-drawer__header {
+    position: absolute;
+    right: 0;
+    color: #234480;
+  }
+  .el-drawer__close-btn {
+    margin-top: -10px;
+    font-weight: bold;
+  }
+}
+
+/* 重写多选框样式 */
+
+.el-dialog__title{
+  font-size: 16px;
+}
+
+// .el-select__input{
+//   // display: none
+// }
+
+/* 系统布局 */
+.sys-wraper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.sys-layout {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.sys-sidebar {
+  background-color: #f0f0f0;
+}
+
+.sys-content {
+  background-color: #fff;
+}
+
+.sys-sidebar {
+  overflow-y: scroll;
+  width: 160px;
+  > ul {
+    width: 100%;
+  }
+}
+
+.sys-sidebar::-webkit-scrollbar {
+  display: none
+}
+
+.sys-content {
+  box-sizing: border-box;
+  flex: 1;
+  padding: 20px 20px 40px;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  border-left-style: solid;
+  border-left-color: #eee;
+  border-left-width: 1px;
+}
+
+.mod-layout {
+  margin: 30px 0;
+}
+
+.mod-layout-top {
+  margin-top: 30px;
+}
+
+/* 常用布局的间隔 */
+
+$box: margin padding;
+$size: (min: 5, small: 10, normal: 20, large: 30);
+$pos: (t: top, r: right, b: bottom, l: left);
+
+@each $b-key in $box {
+  @each $p-key, $p-val in $pos {
+    @each $s-key, $s-val in $size {
+      .#{$b-key}-#{$p-key}-#{$s-key} {
+        #{$b-key}-#{$p-val}: #{$s-val}px;
+      }
+    }
+  }
+}
+
+.form-filter-wraper {
+  padding: 20px;
+  background-color: #f5f7fa;
+}
+
+.el-tabs-custom {
+  &.el-tabs--card > .el-tabs__header {
+    border-bottom: none;
+    .el-tabs__nav {
+      border-radius: 0;
+      border-bottom: 1px solid #E4E7ED;
+    }
+
+    .el-tabs__item {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+
+      &:hover {
+        color: $blue-base;
+      }
+
+      &.is-active {
+        color: #fff;
+        border: 1px solid $blue-base;
+        background-color: $blue-base;
+      }
+    }
+  }
+
+  .el-tabs__nav-wrap {
+    margin-bottom: 0;
+  }
+
+  .col-div {
+    display: flex;
+
+    &.search-precision-wraper {
+      margin-bottom: 5px;
+      .search {
+        margin-left: 20px;
+      }
+      .el-button {
+        padding: 0;
+      }
+    }
+
+    &.search-opt-wraper {
+      display: block;
+      .el-button:first-child {
+        background-color: $blue-base;
+      }
+    }
+
+    .search,
+    .el-checkbox-group,
+    .el-checkbox-group-wraper {
+      display: inline-block;
+    }
+
+    .el-checkbox-group-wraper {
+      position: relative;
+      height: 28px;
+      overflow: hidden;
+
+      &.el-checkbox-group-wraper-open {
+        height: auto;
+      }
+
+      .open {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #909399;
+        cursor: pointer;
+      }
+    }
+
+    .search {
+      font-weight: bold;
+      min-width: 80px;
+    }
+
+    .el-checkbox {
+      min-width: 90px;
+      margin-right: 0;
+    }
+  }
+}
