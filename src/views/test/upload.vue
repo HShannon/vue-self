@@ -8,6 +8,7 @@
         </label>
       </div>
       <vue-cropper
+        v-show="cropperVisible"
         ref="cropper"
         :view-mode="1"
         :aspect-ratio="3/2"
@@ -26,7 +27,7 @@ export default {
   data(){
     return {
       imgStyle: {height: '300px'},
-      initialUrl: ''
+      cropperVisible: false
     }
   },
   methods: {
@@ -41,6 +42,7 @@ export default {
         reader.onload = event => {
           this.uploadImgSrc = event.target.result;
           if(this.$refs.cropper){
+            this.cropperVisible = true;
             this.$refs.cropper.replace(event.target.result);
           }
         };

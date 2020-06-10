@@ -26,7 +26,7 @@ const routes = [
   {
     path: '/test',
     component: Layout,
-    redirect: 'upload',
+    redirect: '/test/upload',
     children: [
       {
         path: 'upload',
